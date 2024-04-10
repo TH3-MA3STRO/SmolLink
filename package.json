@@ -1,14 +1,9 @@
 {
   "name": "smol-link",
   "version": "1",
-  "author": {
-    "name": "Satyam Jha",
-    "email": "satyamjha778@gmail.com"},
   "scripts": {
     "start": "bun run src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts",
-
+    "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
     "elysia": "latest",
