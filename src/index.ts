@@ -1,8 +1,8 @@
 import { Elysia, t } from "elysia";
 import Link from "./model/link"
 import mongoose from "mongoose";
-
-mongoose.connect("mongodb+srv://maestro:4TmVwm8JZQz1Jmpk@base.j5zgyyi.mongodb.net/?retryWrites=true&w=majority&appName=base")
+const MONGO_URI = Bun.env.mongo_uri
+mongoose.connect(MONGO_URI)
 .then(() => {
   console.log("Connected to the database!");
 })
