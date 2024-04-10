@@ -1,7 +1,7 @@
 import { Elysia, t } from "elysia";
 import Link from "./model/link"
 import mongoose from "mongoose";
-const MONGO_URI = Bun.env.MONGODB_URI
+const MONGO_URI = process.env.MONGODB_URI
 mongoose.connect(MONGO_URI)
 .then(() => {
   console.log("Connected to the database!");
@@ -68,3 +68,4 @@ app.listen(3000);
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
 );
+module.exports = app
