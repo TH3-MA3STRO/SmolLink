@@ -1,6 +1,6 @@
 // import { Elysia, t } from "elysia";
-import  {t}  from 'elysia';
-import { Elysia } from 'elysia';
+import  t from 'elysia';
+import { Elysia, ElysiaType } from 'elysia';
 import Link from "./model/link"
 import mongoose from "mongoose";
 const MONGO_URI = process.env.MONGODB_URI ?? "mongodb+srv://maestro:4TmVwm8JZQz1Jmpk@base.j5zgyyi.mongodb.net/?retryWrites=true&w=majority&appName=base"
@@ -17,7 +17,7 @@ function createRandomString(length:number):String {
   return result;
 }
 let schema:any = {
-  body: t.Object({
+  body: ElysiaType.Object({
     link: t.String(),
     shorthand: t.String()
   })}
