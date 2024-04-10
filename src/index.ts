@@ -1,7 +1,7 @@
 import { Elysia, t } from "elysia";
 import Link from "./model/link"
 import mongoose from "mongoose";
-const MONGO_URI = process.env.MONGODB_URI
+const MONGO_URI = process.env.MONGODB_URI ?? "mongodb+srv://maestro:4TmVwm8JZQz1Jmpk@base.j5zgyyi.mongodb.net/?retryWrites=true&w=majority&appName=base"
 mongoose.connect(MONGO_URI)
 .then(() => {
   console.log("Connected to the database!");
@@ -56,7 +56,7 @@ app.post("/generate", async ({ body,set }: { body: any, set:any }) => {
       }
   }
 }, schema)
-app.get("/:shorthand", async ({ set,params }) => {
+app.get("/:shorthand", async ({ set,params }: { set: any, params:any }) => {
   const link = await Link.findOne({ shorthandLink: params.shorthand });
   if (link) {
     set.redirect = "https://"+link.link;
