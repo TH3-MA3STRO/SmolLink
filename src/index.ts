@@ -1,6 +1,6 @@
 // import { Elysia, t } from "elysia";
-import  t from 'elysia';
-import { Elysia, ElysiaType } from 'elysia';
+import  t, ElysiaType from 'elysia';
+import { Elysia } from 'elysia';
 import Link from "./model/link"
 import mongoose from "mongoose";
 const MONGO_URI = process.env.MONGODB_URI ?? "mongodb+srv://maestro:4TmVwm8JZQz1Jmpk@base.j5zgyyi.mongodb.net/?retryWrites=true&w=majority&appName=base"
@@ -18,8 +18,8 @@ function createRandomString(length:number):String {
 }
 let schema:any = {
   body: ElysiaType.Object({
-    link: t.String(),
-    shorthand: t.String()
+    link: ElysiaType.String(),
+    shorthand: ElysiaType.String()
   })}
 const app = new Elysia().get("/", () => "A simple tool to shorten links!")
 app.post("/generate", async ({ body,set }: { body: any, set:any }) => {
