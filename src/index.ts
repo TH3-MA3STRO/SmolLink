@@ -1,5 +1,5 @@
 // import { Elysia, t } from "elysia";
-import  t, ElysiaType from 'elysia';
+import  {t, ElysiaType} from 'elysia';
 import { Elysia } from 'elysia';
 import Link from "./model/link"
 import mongoose from "mongoose";
